@@ -1,57 +1,61 @@
 /* global WebImporter */
+
 export default function parse(element, { document }) {
+  const cells = [];
+
+  // First row: header
   const headerRow = ['Columns'];
+  cells.push(headerRow);
 
-  const cells = [
-    headerRow, // Header row
-  ];
+  // Second row: content organized into columns
+  const contentBlocks = [...element.querySelectorAll('.fe-block')];
 
-  // Find all blocks within the element
-  const blocks = element.querySelectorAll('.fe-block');
+  const columns = contentBlocks
+    .map((block) => {
+      const elements = [];
 
-  blocks.forEach((block) => {
-    const columnContent = [];
+      // Extract image
+      const image = block.querySelector('img');
+      if (image) {
+        elements.push(image.cloneNode(true));
+      }
 
-    // Extract image if present
-    const imageElement = block.querySelector('img');
-    if (imageElement) {
-      const img = document.createElement('img');
-      img.src = imageElement.src;
-      img.alt = imageElement.alt || '';
-      columnContent.push(img);
-    }
+      // Extract heading
+      const heading = block.querySelector('h2, h3');
+      if (heading) {
+        const headingElement = document.createElement('h3');
+        headingElement.textContent = heading.textContent.trim();
+        elements.push(headingElement);
+      }
 
-    // Extract title if present
-    const titleElement = block.querySelector('h3');
-    if (titleElement) {
-      const title = document.createElement('h3');
-      title.textContent = titleElement.textContent.trim();
-      columnContent.push(title);
-    }
+      // Extract paragraph text
+      const paragraph = block.querySelector('p');
+      if (paragraph) {
+        const paragraphElement = document.createElement('p');
+        paragraphElement.textContent = paragraph.textContent.trim();
+        elements.push(paragraphElement);
+      }
 
-    // Extract description if present
-    const descriptionElement = block.querySelector('p');
-    if (descriptionElement) {
-      const paragraph = document.createElement('p');
-      paragraph.textContent = descriptionElement.textContent.trim();
-      columnContent.push(paragraph);
-    }
+      // Extract button
+      const button = block.querySelector('a.sqs-block-button-element');
+      if (button) {
+        const buttonElement = button.cloneNode(true);
+        buttonElement.textContent = button.textContent.trim();
+        elements.push(buttonElement);
+      }
 
-    // Extract button if present and meaningful
-    const buttonElement = block.querySelector('a');
-    if (buttonElement && buttonElement.textContent.trim()) {
-      const button = document.createElement('a');
-      button.href = buttonElement.href;
-      button.textContent = buttonElement.textContent.trim();
-      columnContent.push(button);
-    }
+      // Return elements only if valid content is found
+      return elements.length > 0 ? elements : null;
+    })
+    .filter((column) => column !== null); // Remove empty columns
 
-    if (columnContent.length > 0) {
-      cells.push([columnContent]);
-    }
-  });
+  if (columns.length > 0) {
+    cells.push(columns);
+  }
 
-  // Create and replace the original element with the block table
-  const blockTable = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(blockTable);
+  // Create structured table block
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+
+  // Replace the original element with the new structured table block
+  element.replaceWith(table);
 }

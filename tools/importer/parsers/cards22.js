@@ -1,44 +1,49 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  const cardsData = [];
+  const cells = [["Cards"]];
 
-  // Extracting blog items
-  const blogItems = element.querySelectorAll('.blog-item');
+  const articles = element.querySelectorAll("article.blog-item");
 
-  blogItems.forEach(blogItem => {
-    const imageElement = blogItem.querySelector('img');
-    const titleElement = blogItem.querySelector('h1.blog-title a');
-    const descriptionElement = blogItem.querySelector('.blog-excerpt p');
-    const ctaElement = blogItem.querySelector('a.blog-more-link');
+  articles.forEach((article) => {
+    // Extract image
+    const imageLink = article.querySelector(".image-wrapper");
+    const imageElement = imageLink?.querySelector("img");
 
-    // Handle missing data edge cases
-    const image = document.createElement('img');
-    image.src = imageElement ? imageElement.getAttribute('src').trim() : '';
-    image.alt = imageElement ? imageElement.getAttribute('alt').trim() : '';
+    const image = document.createElement("img");
+    image.src = imageElement?.src;
+    image.alt = imageElement?.alt || "";
 
-    const title = document.createElement('h1');
-    title.textContent = titleElement ? titleElement.textContent.trim() : '';
+    // Extract title
+    const titleLink = article.querySelector("h1.blog-title a");
+    const title = titleLink ? document.createElement("p") : undefined;
+    if (title) {
+      title.style.fontWeight = "bold";
+      title.textContent = titleLink.textContent.trim(); // Fix unnecessary formatting
+    }
 
-    const description = document.createElement('p');
-    description.textContent = descriptionElement ? descriptionElement.textContent.trim() : '';
+    // Extract description
+    const descriptionElement = article.querySelector("div.blog-excerpt-wrapper > p");
+    const description = descriptionElement ? document.createElement("p") : undefined;
+    if (description) {
+      description.textContent = descriptionElement.textContent.trim(); // Fix unnecessary formatting
+    }
 
-    const cta = document.createElement('a');
-    cta.href = ctaElement ? ctaElement.href.trim() : '#';
-    cta.textContent = ctaElement ? 'Read More' : '';
+    // Extract call-to-action link
+    const readMoreLink = article.querySelector("a.blog-more-link");
+    const cta = readMoreLink ? document.createElement("a") : undefined;
+    if (cta) {
+      cta.href = readMoreLink.href;
+      cta.textContent = "Read More";
+    }
 
-    cardsData.push([
-      image,
-      [title, description, cta]
-    ]);
+    const textContent = [];
+    if (title) textContent.push(title);
+    if (description) textContent.push(description);
+    if (cta) textContent.push(cta);
+
+    cells.push([image, textContent]);
   });
 
-  // Adding the header row
-  const headerRow = ['Cards'];
-  const tableData = [headerRow, ...cardsData];
-
-  // Creating the table block
-  const block = WebImporter.DOMUtils.createTable(tableData, document);
-
-  // Replacing the original element
-  element.replaceWith(block);
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(table);
 }

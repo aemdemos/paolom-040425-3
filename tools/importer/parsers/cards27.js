@@ -1,48 +1,41 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-    const cards = [];
+    // Define the header row
+    const headerRow = ['Cards'];
 
-    // Extract cards data from the HTML element
-    const cardElements = element.querySelectorAll('.user-items-list-carousel__slide');
+    // Extract user items from the provided element
+    const userItems = JSON.parse(element.querySelector('[data-current-context]').getAttribute('data-current-context')).userItems;
 
-    cardElements.forEach((cardElement) => {
-        const image = cardElement.querySelector('img');
-        const title = cardElement.querySelector('.list-item-content__title');
-        const description = cardElement.querySelector('.list-item-content__description');
-        const button = cardElement.querySelector('.list-item-content__button a');
+    // Build rows for the table
+    const rows = userItems.map(item => {
+        const img = document.createElement('img');
+        img.src = item.image.assetUrl;
+        img.alt = item.imageAltText;
 
-        const imageElement = document.createElement('img');
-        imageElement.src = image?.getAttribute('data-src') || '';
-        imageElement.alt = image?.getAttribute('alt') || '';
-        
-        const content = [];
+        const title = document.createElement('strong');
+        title.textContent = item.title;
 
-        if (title && title.textContent.trim()) {
-            const titleElement = document.createElement('strong');
-            titleElement.textContent = title.textContent.trim();
-            content.push(titleElement);
-        }
+        const description = document.createElement('p');
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = item.description; // Temporarily parse the HTML
+        description.textContent = tempDiv.textContent; // Extract plain text without nesting
 
-        if (description && description.textContent.trim()) {
-            const descElement = document.createElement('p');
-            descElement.textContent = description.textContent.trim();
-            content.push(descElement);
-        }
+        const cta = document.createElement('a');
+        cta.href = item.button.buttonLink;
+        cta.textContent = item.button.buttonText;
 
-        if (button && button.href && button.textContent.trim()) {
-            const buttonElement = document.createElement('a');
-            buttonElement.href = button.href;
-            buttonElement.textContent = button.textContent.trim();
-            content.push(buttonElement);
-        }
+        const content = document.createElement('div');
+        content.append(title, description, cta);
 
-        cards.push([imageElement, content]);
+        return [img, content];
     });
 
-    const tableHeader = ['Cards'];
-    const tableData = [tableHeader, ...cards];
+    // Combine header and rows
+    const tableData = [headerRow, ...rows];
 
-    const table = WebImporter.DOMUtils.createTable(tableData, document);
+    // Create the block table
+    const blockTable = WebImporter.DOMUtils.createTable(tableData, document);
 
-    element.replaceWith(table);
+    // Replace the original element with the new block table
+    element.replaceWith(blockTable);
 }

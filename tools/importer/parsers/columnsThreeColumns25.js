@@ -1,48 +1,41 @@
 /* global WebImporter */
-
 export default function parse(element, { document }) {
-  // Helper to extract text content
-  const extractText = (selector) => {
-    const el = element.querySelector(selector);
-    return el ? el.textContent.trim() : '';
-  };
+    const headerRow = ['Columns'];
 
-  // Helper to extract images
-  const extractImage = (selector) => {
-    const img = element.querySelector(selector);
-    if (!img) return '';
+    // Helper function to extract image elements dynamically
+    const getImageElement = (imageBlock) => {
+        const imgTag = imageBlock.querySelector('img');
+        return imgTag ? imgTag.cloneNode(true) : null;
+    };
 
-    const imageElement = document.createElement('img');
-    imageElement.src = img.src;
-    imageElement.alt = img.alt;
-    return imageElement;
-  };
+    // Helper function to extract text content dynamically
+    const getTextElement = (htmlBlock) => {
+        const paragraphs = htmlBlock.querySelectorAll('p');
+        return Array.from(paragraphs).map((paragraph) => {
+            const clonedPara = document.createElement('p');
+            clonedPara.textContent = paragraph.textContent;
+            return clonedPara;
+        });
+    };
 
-  // Extract content for columns
-  const column1Header = extractText(".fe-block-eccc4280f3d0399f7d04 h2");
-  const column1Content = extractText(".fe-block-da69e00a895b5a70ddd7 p");
-  const column1Image = extractImage(".fe-block-046cc3528c2c2eaf43f0 img");
+    // Validate that extraction handles missing data gracefully
+    const collectedContent = [];
 
-  const column2Header = extractText(".fe-block-297a88bb6fe254d9d71d p");
-  const column2Content = extractText(".fe-block-04cb045237036ee8af31 p");
-  const column2Image = extractImage(".fe-block-702c8261b81d6de2b78a img");
+    const imageBlocks = element.querySelectorAll('.sqs-block-image');
+    const textBlocks = element.querySelectorAll('.sqs-block-html');
 
-  const column3Header = extractText(".fe-block-7c3393ea789ca3648864 p");
-  const column3Content = extractText(".fe-block-79fcdd345d81d234dc2b p");
-  const column3Image = extractImage(".fe-block-5dddb0c9f7d61a6caca3 img");
+    const numColumns = Math.max(imageBlocks.length, textBlocks.length); // Ensure extraction flexibility
 
-  // Create the table structure
-  const cells = [
-    ["Columns"],
-    [
-      [column1Header, column1Image, column1Content],
-      [column2Header, column2Image, column2Content],
-      [column3Header, column3Image, column3Content],
-    ],
-  ];
+    for (let i = 0; i < numColumns; i++) {
+        const imageElement = imageBlocks[i] ? getImageElement(imageBlocks[i]) : document.createElement('div');
+        const textElement = textBlocks[i] ? getTextElement(textBlocks[i]) : [];
 
-  const table = WebImporter.DOMUtils.createTable(cells, document);
+        collectedContent.push([imageElement, ...textElement]);
+    }
 
-  element.replaceWith(table);
-  return table;
+    const tableData = [headerRow, ...collectedContent];
+
+    const blockTable = WebImporter.DOMUtils.createTable(tableData, document);
+
+    element.replaceWith(blockTable);
 }

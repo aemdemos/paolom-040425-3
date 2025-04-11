@@ -2,29 +2,28 @@
 export default function parse(element, { document }) {
   const headerRow = ['Accordion'];
 
-  // Extract relevant content from the element
-  const title = element.querySelector('h2')?.textContent.trim() || '';
+  const rows = [];
 
-  const paragraphs = Array.from(element.querySelectorAll('p')).map((p) => {
-    const strongText = p.querySelector('strong');
-    const content = strongText 
-      ? [
-          strongText.cloneNode(true), 
-          document.createTextNode(' ' + p.textContent.replace(strongText.textContent, '').trim())
-        ] 
-      : document.createTextNode(p.textContent.trim());
-    return content;
-  });
+  const contentEl = element.querySelector('.sqs-block-content .sqs-html-content');
 
-  // Structure the table
-  const rows = paragraphs.map((content, index) => {
-    const titleCell = index === 0 ? title : '';
-    return [titleCell, content];
-  });
+  if (contentEl) {
+    const children = Array.from(contentEl.children);
+    let currentTitle = null;
 
-  const tableData = [headerRow, ...rows];
+    children.forEach((child) => {
+      if (child.tagName === 'H2') {
+        currentTitle = child.textContent.trim();
+      } else if (child.tagName === 'P') {
+        if (currentTitle) {
+          rows.push([currentTitle, child.cloneNode(true)]);
+          currentTitle = null;
+        }
+      }
+    });
+  }
 
-  // Create the block table and replace the original element
-  const block = WebImporter.DOMUtils.createTable(tableData, document);
+  const cells = [headerRow].concat(rows);
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+
   element.replaceWith(block);
 }

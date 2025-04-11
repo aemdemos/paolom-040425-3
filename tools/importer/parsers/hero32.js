@@ -1,46 +1,58 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
+  // Helper to extract the background image element
+  const extractBackgroundImage = (imageBlock) => {
+    const img = imageBlock.querySelector('img');
+    if (img) {
+      const backgroundImage = document.createElement('img');
+      backgroundImage.src = img.src;
+      backgroundImage.alt = img.alt || '';
+      return backgroundImage;
+    }
+    return null;
+  };
+
+  // Extract content elements
+  const imageElement = element.querySelector('.image-block img');
+  const backgroundImage = extractBackgroundImage(element.querySelector('.image-block'));
+  const titleElement = element.querySelector('.html-block h1');
+  const subheadingElement = element.querySelector('.html-block p');
+
+  const callToActionElement = element.querySelector('.button-block a');
+
+  // Create cells for the table
   const headerRow = ['Hero'];
 
-  // Find the image element dynamically
-  const imageElement = element.querySelector('img');
-  const image = imageElement ? document.createElement('img') : null;
-  if (imageElement) {
-    image.src = imageElement.src;
-    image.alt = imageElement.alt;
+  const contentRow = [];
+
+  if (backgroundImage) {
+    contentRow.push(backgroundImage);
   }
 
-  // Find the heading element dynamically
-  const headingElement = element.querySelector('h1');
-  const heading = headingElement ? document.createElement('h1') : null;
-  if (headingElement) {
-    heading.innerHTML = headingElement.innerHTML;
+  if (titleElement) {
+    const heading = document.createElement('h1');
+    heading.textContent = titleElement.textContent;
+    contentRow.push(heading);
   }
 
-  // Find the paragraph element dynamically
-  const paragraphElement = element.querySelector('p');
-  const paragraph = paragraphElement ? document.createElement('p') : null;
-  if (paragraphElement) {
-    paragraph.innerHTML = paragraphElement.innerHTML;
+  if (subheadingElement) {
+    const subheading = document.createElement('p');
+    subheading.textContent = subheadingElement.textContent;
+    contentRow.push(subheading);
   }
 
-  // Find the button element dynamically
-  const buttonElement = element.querySelector('a.sqs-block-button-element');
-  const button = buttonElement ? document.createElement('a') : null;
-  if (buttonElement) {
-    button.href = buttonElement.href;
-    button.textContent = buttonElement.textContent;
+  if (callToActionElement) {
+    const button = document.createElement('a');
+    button.href = callToActionElement.href;
+    button.textContent = callToActionElement.textContent;
+    button.classList.add('button');
+    contentRow.push(button);
   }
 
-  // Assemble the content row with non-null elements
-  const contentRow = [
-    [image, heading, paragraph, button].filter(Boolean),
-  ];
+  // Create the table
+  const cells = [headerRow, [contentRow]];
+  const block = WebImporter.DOMUtils.createTable(cells, document);
 
-  // Create the table structure
-  const tableCells = [headerRow, contentRow];
-  const blockTable = WebImporter.DOMUtils.createTable(tableCells, document);
-
-  // Replace the original element with the new block table
-  element.replaceWith(blockTable);
+  // Replace original element with the new block
+  element.replaceWith(block);
 }

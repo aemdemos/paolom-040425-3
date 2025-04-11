@@ -1,40 +1,40 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Helper function to extract content
-  const extractContent = (selector) => {
-    const el = element.querySelector(selector);
-    return el ? el.textContent.trim() : '';
-  };
+  // Extract the background image
+  const img = element.querySelector('img') || {};
+  const imageSrc = img.getAttribute('data-src') || img.src;
 
-  // Extract image
-  const backgroundImage = element.querySelector('img');
-  const image = backgroundImage ? document.createElement('img') : null;
+  // Extract title
+  const titleElement = element.querySelector('h2');
+  const title = titleElement ? titleElement.textContent.trim() : '';
 
-  if (image) {
-    image.src = backgroundImage.src;
-    image.alt = backgroundImage.alt || '';
-  }
+  // Extract subtitle
+  const subtitleElement = element.querySelector('p:nth-of-type(2)');
+  const subtitle = subtitleElement ? subtitleElement.textContent.trim() : '';
 
-  // Extract heading
-  const heading = document.createElement('h2');
-  heading.textContent = extractContent('h2');
-
-  // Extract subheading
-  const subheadingText = extractContent('.sqs-html-content p');
-  const subheading = document.createElement('p');
-  subheading.textContent = subheadingText;
-
-  // Combine content into a single cell
-  const combinedContent = [image, heading, subheading];
-
-  // Table cells
-  const cells = [
-    ['Hero'],
-    [combinedContent],
+  // Construct table cells
+  const headerRow = ['Hero'];
+  const contentRow = [
+    [imageSrc ? (() => {
+      const imageTag = document.createElement('img');
+      imageTag.setAttribute('src', imageSrc);
+      return imageTag;
+    })() : null, (() => {
+      const titleTag = document.createElement('h1');
+      titleTag.textContent = title;
+      return titleTag;
+    })(), subtitle ? (() => {
+      const subtitleTag = document.createElement('p');
+      subtitleTag.textContent = subtitle;
+      return subtitleTag;
+    })() : null].filter(Boolean)
   ];
 
+  const cells = [headerRow, contentRow];
+
+  // Create the block table
   const blockTable = WebImporter.DOMUtils.createTable(cells, document);
 
-  // Replace original element
+  // Replace the element with the new block table
   element.replaceWith(blockTable);
 }

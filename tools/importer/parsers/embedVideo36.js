@@ -1,45 +1,45 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Extract the video URL from the data-config-video attribute
-  const videoContainer = element.querySelector('.sqs-native-video');
-  const videoData = videoContainer ? JSON.parse(videoContainer.getAttribute('data-config-video')) : null;
-  const videoUrl = videoData && videoData.structuredContent && videoData.structuredContent.alexandriaUrl
-    ? videoData.structuredContent.alexandriaUrl.replace('{variant}', '1920:1080')
-    : null;
+  // Extract the video URL from the data attributes
+  const videoBlock = element.querySelector('.sqs-native-video');
+  const videoConfig = JSON.parse(videoBlock.getAttribute('data-config-video'));
+  const videoUrlTemplate = videoConfig?.alexandriaUrl;
 
-  // Extract the poster thumbnail URL
-  const posterElement = element.querySelector('video');
-  const posterUrl = posterElement ? posterElement.getAttribute('data-poster') : null;
-
-  // Create an image element for the poster if available
-  const posterImage = posterUrl ? document.createElement('img') : null;
-  if (posterImage) {
-    posterImage.setAttribute('src', posterUrl);
+  // Safely retrieve and validate the video URL
+  let videoUrl = '';
+  if (videoUrlTemplate) {
+    videoUrl = videoUrlTemplate.replace('{variant}', '1920');
+  } else {
+    console.error("Missing video configuration");
+    return;
   }
 
-  // Create an anchor element for the video URL if available
-  const videoLink = videoUrl ? document.createElement('a') : null;
-  if (videoLink) {
-    videoLink.setAttribute('href', videoUrl);
-    videoLink.textContent = videoUrl;
+  // Safely extract the poster URL
+  const videoPosterElement = videoBlock.querySelector('video');
+  let videoPoster = '';
+  if (videoPosterElement) {
+    videoPoster = videoPosterElement.getAttribute('data-poster');
+  } else {
+    console.error("Missing poster URL");
+    return;
   }
 
-  // Define the table structure
-  const headerRow = ['Embed']; // Header row matches example
-  const contentRow = posterImage && videoLink
-    ? [[posterImage, document.createElement('br'), videoLink]]
-    : videoLink
-    ? [[videoLink]]
-    : [['No content available']];
+  // Create elements for the image and link
+  const posterImage = document.createElement('img');
+  posterImage.setAttribute('src', videoPoster);
 
+  const videoLink = document.createElement('a');
+  videoLink.setAttribute('href', videoUrl);
+  videoLink.textContent = videoUrl;
+
+  // Create the structured table format
   const cells = [
-    headerRow,
-    contentRow,
+    ['Embed'],
+    [[posterImage, videoLink]] // Combine image and link into a single cell
   ];
 
-  // Create the block table
-  const blockTable = WebImporter.DOMUtils.createTable(cells, document);
+  const block = WebImporter.DOMUtils.createTable(cells, document);
 
-  // Replace the original element with the new block table
-  element.replaceWith(blockTable);
+  // Replace the original element with the new structured table
+  element.replaceWith(block);
 }

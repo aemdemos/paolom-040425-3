@@ -1,42 +1,35 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-    const headerRow = ['Cards (no images)'];
+  const headerRow = ['Cards (no images)'];
 
-    // Find content blocks with relevant data
-    const contentBlocks = element.querySelectorAll('.sqs-block-content');
+  // Extract content from the given element.
+  const cards = [];
+  const blocks = element.querySelectorAll('.sqs-html-content');
 
-    const rows = Array.from(contentBlocks).map((block) => {
-        const heading = block.querySelector('h3')?.textContent.trim();
-        const paragraphs = Array.from(block.querySelectorAll('p')).map((p) => {
-            const paragraphElement = document.createElement('p');
-            paragraphElement.textContent = p.textContent.trim();
-            return paragraphElement;
-        });
+  blocks.forEach(block => {
+    const title = block.querySelector('h3');
+    const paragraphs = block.querySelectorAll('p');
 
-        // Combine heading and paragraphs into one cell
-        const cellContent = [];
-        if (heading) {
-            const headingElement = document.createElement('strong');
-            headingElement.textContent = heading;
-            cellContent.push(headingElement);
-        }
+    const content = [];
 
-        // Add paragraphs with clear separation
-        paragraphs.forEach((paragraph, index) => {
-            if (index > 0) {
-                const separator = document.createElement('hr');
-                cellContent.push(separator);
-            }
-            cellContent.push(paragraph);
-        });
-
-        return [cellContent];
+    if (title) {
+      const strong = document.createElement('strong');
+      strong.textContent = title.textContent.trim();
+      content.push(strong);
+      content.push(document.createElement('br'));
+    }
+    
+    paragraphs.forEach(paragraph => {
+      content.push(paragraph.cloneNode(true));
     });
 
-    // Create the table without empty rows
-    const cells = [headerRow, ...rows.filter((row) => row[0]?.length > 0)];
-    const table = WebImporter.DOMUtils.createTable(cells, document);
+    cards.push([content]);
+  });
 
-    // Replace the original element with the table
-    element.replaceWith(table);
+  // Create block table using WebImporter.DOMUtils.createTable()
+  const tableData = [headerRow, ...cards];
+  const blockTable = WebImporter.DOMUtils.createTable(tableData, document);
+
+  // Replace the original element with the new block table
+  element.replaceWith(blockTable);
 }

@@ -1,29 +1,33 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Extract the title from the element
-  const title = element.querySelector('h1.entry-title');
-  const heading = title ? document.createElement('h1') : null;
-  if (title) {
-    heading.textContent = title.textContent;
-  }
+  const headerRow = ['Hero']; // Exact header as per example
 
-  // Extract the content paragraphs
-  const contentWrapper = element.querySelector('.blog-item-content-wrapper .blog-item-content');
-  const paragraphs = contentWrapper ? [...contentWrapper.querySelectorAll('p')] : [];
+  // Extract title
+  const titleElement = element.querySelector('.blog-item-title h1');
+  const title = document.createElement('h1');
+  title.textContent = titleElement ? titleElement.textContent.trim() : '';
 
-  // Combine the paragraphs into a single container
-  const combinedParagraphs = document.createElement('div');
-  paragraphs.forEach((p) => combinedParagraphs.appendChild(p.cloneNode(true)));
+  // Extract blog content paragraphs
+  const contentElements = element.querySelectorAll('.blog-item-content p');
+  const paragraphs = Array.from(contentElements).map((p) => {
+    const paragraph = document.createElement('p');
+    paragraph.textContent = p.textContent.trim();
+    return paragraph;
+  });
 
-  // Create the table cells
-  const cells = [
-    ['Hero'],
-    [heading, combinedParagraphs],
-  ];
+  // Combine title and paragraphs into a single cell in the second row
+  const combinedContent = document.createElement('div');
+  combinedContent.appendChild(title);
+  paragraphs.forEach((p) => combinedContent.appendChild(p));
 
   // Create the table using WebImporter.DOMUtils.createTable
-  const blockTable = WebImporter.DOMUtils.createTable(cells, document);
+  const tableRows = [
+    headerRow, // First row with header, single column
+    [combinedContent] // Second row with all content combined
+  ];
 
-  // Replace the original element with the new block table
-  element.replaceWith(blockTable);
+  const table = WebImporter.DOMUtils.createTable(tableRows, document);
+
+  // Replace the original element with new structured table
+  element.replaceWith(table);
 }

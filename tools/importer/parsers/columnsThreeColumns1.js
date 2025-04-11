@@ -1,35 +1,44 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Correcting the header row to match the example exactly
-  const headerRow = ['Columns'];
+    // Define the header row exactly as the example specifies.
+    const headerRow = ['Columns'];
 
-  // Extract column content dynamically from `.fe-block` blocks
-  const columns = Array.from(element.querySelectorAll('.fe-block')).map((block) => {
-    const textContent = block.querySelector('.sqs-html-content');
-    const imageContent = block.querySelector('img');
+    // Extracting content from the column blocks within the element.
+    const blocks = Array.from(element.querySelectorAll('.fe-block'));
 
-    const content = [];
+    // Map through the blocks and extract relevant content.
+    const contentBlocks = blocks.map(block => {
+        const textContent = block.querySelector('.sqs-html-content');
+        const imageContent = block.querySelector('img');
 
-    if (textContent) {
-      content.push(textContent.cloneNode(true));
-    }
+        const elements = [];
 
-    if (imageContent) {
-      content.push(imageContent.cloneNode(true));
-    }
+        // Add extracted text nodes if present.
+        if (textContent) {
+            const childNodes = Array.from(textContent.childNodes).filter(node => node.nodeType === Node.ELEMENT_NODE);
+            childNodes.forEach(item => elements.push(item));
+        }
 
-    return content;
-  });
+        // Add extracted image if present.
+        if (imageContent) {
+            elements.push(imageContent);
+        }
 
-  // Create the table structure ensuring the header row contains exactly one column
-  const tableStructure = [
-    [headerRow], // Fix: Header row contains one column
-    columns
-  ];
+        // Combine text and image content into one block.
+        return elements;
+    });
 
-  // Create the block table
-  const blockTable = WebImporter.DOMUtils.createTable(tableStructure, document);
+    // Build the cells array for the createTable function.
+    const cells = [
+        headerRow,
+        ...contentBlocks // Each block represents a column.
+    ];
 
-  // Replace the original element with the new block table
-  element.replaceWith(blockTable);
+    // Create the table block using the helper function.
+    const blockTable = WebImporter.DOMUtils.createTable(cells, document);
+
+    // Replace the original element with the created table block.
+    element.replaceWith(blockTable);
+
+    return blockTable;
 }

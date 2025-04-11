@@ -1,50 +1,60 @@
 /* global WebImporter */
-export default function parse(element, { document }) {
-  // Define the header row with the exact text from the example
+ export default function parse(element, { document }) {
+  const createTable = WebImporter.DOMUtils.createTable;
+
+  // Fix the header row to match the example exactly: one column with 'Columns' text
   const headerRow = ['Columns'];
 
-  // Locate the main content area using the `.fluid-engine` class
-  const content = element.querySelector('.fluid-engine');
-
-  // Prepare an array to hold the content for three columns (matching the example structure)
   const columns = [];
+  const columnElements = element.querySelectorAll('.fe-block');
 
-  // Extract all child blocks from the content area dynamically
-  const blocks = content.querySelectorAll('.fe-block');
+  columnElements.forEach((el) => {
+    const blockContent = el.querySelector('.sqs-block-content');
+    if (blockContent) {
+      const cellContent = [];
 
-  // Ensure only three columns are extracted, as per the example
-  blocks.forEach((block, index) => {
-    if (index < 3) { // Limit to three columns
-      const blockContent = block.querySelector('.sqs-block-content');
-      if (blockContent) {
-        const text = blockContent.querySelector('p, h2');
-        const image = blockContent.querySelector('img');
-
-        const cellContent = [];
-        if (text) {
-          cellContent.push(text.textContent); // Use plain text for captions or headers
-        }
-        if (image) {
-          const imageElement = document.createElement('img');
-          imageElement.src = image.src;
-          imageElement.alt = image.alt || '';
-          cellContent.push(imageElement);
-        }
-
-        columns.push(cellContent);
+      // Extract image elements
+      const imgElement = blockContent.querySelector('img');
+      if (imgElement) {
+        cellContent.push(imgElement.cloneNode(true));
       }
+
+      // Extract heading elements
+      const headingElement = blockContent.querySelector('h2');
+      if (headingElement) {
+        const headingClone = document.createElement('h2');
+        headingClone.textContent = headingElement.textContent;
+        cellContent.push(headingClone);
+      }
+
+      // Extract paragraph content
+      const contentTextElement = blockContent.querySelector('p');
+      if (contentTextElement) {
+        const paragraphClone = document.createElement('p');
+        paragraphClone.textContent = contentTextElement.textContent.trim();
+        cellContent.push(paragraphClone);
+      }
+
+      columns.push(cellContent);
     }
   });
 
-  // Construct the table cells array, ensuring it matches the required structure
+  // Ensure there are exactly 3 columns; fill missing columns if necessary
+  const maxColumns = 3;
+  while (columns.length < maxColumns) {
+    columns.push(['']);
+  }
+
+  // Build content row
+  const contentRow = columns;
+
   const cells = [
-    headerRow, // The header row
-    columns // Add the properly structured content for three columns only
+    headerRow,
+    contentRow
   ];
 
-  // Create a block table using the helper function
-  const block = WebImporter.DOMUtils.createTable(cells, document);
+  const blockTable = createTable(cells, document);
 
-  // Replace the original element with the newly created block table
-  element.replaceWith(block);
+  // Replace original element
+  element.replaceWith(blockTable);
 }

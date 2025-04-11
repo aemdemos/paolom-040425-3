@@ -1,45 +1,40 @@
 /* global WebImporter */
+
 export default function parse(element, { document }) {
-    // Define the header row using the exact text from the example
-    const headerRow = ['Cards (no images)'];
+  const headerRow = ['Cards (no images)'];
 
-    // Find all relevant card elements dynamically
-    const cardElements = element.querySelectorAll('.sqs-html-content p');
+  const rows = [headerRow];
 
-    if (!cardElements.length) {
-        console.error('No cards found in the provided element');
-        return;
+  // Extract sections within the HTML
+  const sections = element.querySelectorAll('.fe-block');
+
+  sections.forEach((section) => {
+    const heading = section.querySelector('h3');
+    const paragraphs = section.querySelectorAll('p');
+
+    // Combine heading and paragraphs into a single cell
+    const content = [];
+
+    if (heading) {
+      const headingText = document.createElement('strong');
+      headingText.textContent = heading.textContent;
+      content.push(headingText);
     }
 
-    // Process each card to extract its title and description
-    const cardsContent = Array.from(cardElements).map(cardElement => {
-        const title = cardElement.querySelector('strong')?.textContent || 'Missing title';
-        const description = cardElement.textContent.replace(title, '').trim() || 'Missing description';
-
-        // Combine title and description into a single cell content
-        const combinedContent = document.createElement('div');
-
-        const titleElement = document.createElement('strong');
-        titleElement.textContent = title;
-
-        const descriptionElement = document.createElement('p');
-        descriptionElement.textContent = description;
-
-        combinedContent.appendChild(titleElement);
-        combinedContent.appendChild(descriptionElement);
-
-        return [combinedContent];
+    paragraphs.forEach((paragraph) => {
+      const paragraphText = document.createElement('p');
+      paragraphText.textContent = paragraph.textContent;
+      content.push(paragraphText);
     });
 
-    // Create the table array
-    const tableArray = [
-        headerRow,
-        ...cardsContent
-    ];
+    // Create a row for this section
+    rows.push([content]);
+  });
 
-    // Create block table
-    const blockTable = WebImporter.DOMUtils.createTable(tableArray, document);
+  const table = WebImporter.DOMUtils.createTable(rows, document);
 
-    // Replace original element with the new block table
-    element.replaceWith(blockTable);
+  // Replace the original element with the new table
+  element.replaceWith(table);
+
+  return table;
 }

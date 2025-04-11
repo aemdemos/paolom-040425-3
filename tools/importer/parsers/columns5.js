@@ -1,39 +1,23 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  const headerRow = ['Columns'];
+    const headerRow = ['Columns'];
 
-  const rows = [];
+    // Extract all block contents dynamically from sqs-html-content classes
+    const blocks = Array.from(element.querySelectorAll('.sqs-html-content')).map((block) => {
+        // Clone and wrap content in a div
+        const clonedContent = block.cloneNode(true);
+        const wrapper = document.createElement('div');
+        wrapper.append(...clonedContent.childNodes);
+        return wrapper;
+    });
 
-  // Extract the first block
-  const firstBlock = element.querySelector('#block-yui_3_17_2_1_1730148658783_12872 .sqs-block-content .sqs-html-content h3');
-  if (firstBlock) {
-    rows.push([firstBlock.textContent.trim()]);
-  }
+    // Prepare table data with the correct header row
+    const tableData = [
+        headerRow, // Ensure header row is a single cell as per requirements
+        ...blocks.map(content => [content]) // Organize extracted elements into separate rows
+    ];
 
-  // Extract the second block
-  const secondBlock = element.querySelector('#block-yui_3_17_2_1_1730148658783_14570 .sqs-block-content .sqs-html-content');
-  if (secondBlock) {
-    const paragraphs = Array.from(secondBlock.querySelectorAll('p')).map(p => p.textContent.trim()).join(' ');
-    rows.push([paragraphs]);
-  }
-
-  // Extract the third block
-  const thirdBlock = element.querySelector('#block-yui_3_17_2_1_1730148658783_16850 .sqs-block-content .sqs-html-content h3');
-  if (thirdBlock) {
-    rows.push([thirdBlock.textContent.trim()]);
-  }
-
-  // Extract the fourth block
-  const fourthBlock = element.querySelector('#block-yui_3_17_2_1_1730148658783_17914 .sqs-block-content .sqs-html-content');
-  if (fourthBlock) {
-    const paragraphs = Array.from(fourthBlock.querySelectorAll('p')).map(p => p.textContent.trim()).join(' ');
-    rows.push([paragraphs]);
-  }
-
-  // Create the table
-  const cells = [headerRow, ...rows];
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-
-  // Replace the element
-  element.replaceWith(table);
+    // Create table using DOMUtils helper and replace element
+    const table = WebImporter.DOMUtils.createTable(tableData, document);
+    element.replaceWith(table);
 }

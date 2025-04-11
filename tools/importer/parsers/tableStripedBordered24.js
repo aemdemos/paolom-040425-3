@@ -1,37 +1,31 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  const headerRow = ['Table (striped, bordered)'];
+  // Extract title
+  const titleElement = element.querySelector('h1.entry-title');
+  const title = titleElement ? titleElement.textContent.trim() : '';
 
-  const blogTitle = element.querySelector('.entry-title')?.textContent.trim() || '';
-  const blogDate = element.querySelector('.dt-published')?.textContent.trim() || '';
+  // Extract author name
+  const authorElement = element.querySelector('.blog-meta-item--author .blog-author-name');
+  const author = authorElement ? authorElement.textContent.trim() : '';
 
-  const authorWrapper = element.querySelector('.blog-meta-item--author');
-  const authorLink = authorWrapper?.querySelector('a');
-  const authorName = authorLink?.textContent.trim() || '';
-  const authorUrl = authorLink?.href || '';
+  // Extract published date
+  const dateElement = element.querySelector('time.blog-meta-item--date span');
+  const date = dateElement ? dateElement.textContent.trim() : '';
 
-  // Create the author element with the profile link
-  const authorElement = document.createElement('div');
-  authorElement.textContent = `Written By: ${authorName}`;
+  // Construct table header row, EXACTLY matching example headers
+  const headerRow = ['Blog Entry'];
 
-  if (authorUrl) {
-    const authorLinkElement = document.createElement('a');
-    authorLinkElement.href = authorUrl;
-    authorLinkElement.textContent = 'Author Profile';
-    authorElement.appendChild(document.createTextNode(' ')); // Add space between text and link
-    authorElement.appendChild(authorLinkElement);
-  }
-
-  // Construct table data
-  const tableData = [
-    headerRow,
-    [document.createTextNode(`Title: ${blogTitle}`)],
-    [document.createTextNode(`Date: ${blogDate}`)],
-    [authorElement]
+  // Construct content rows dynamically
+  const contentRows = [
+    [`Title: ${title}`],
+    [`Author: ${author}`],
+    [`Date: ${date}`],
   ];
 
-  // Create table block and replace element
-  const blockTable = WebImporter.DOMUtils.createTable(tableData, document);
+  // Create table using WebImporter.DOMUtils.createTable
+  const cells = [headerRow, ...contentRows];
+  const blockTable = WebImporter.DOMUtils.createTable(cells, document);
 
+  // Replace original element with the block table
   element.replaceWith(blockTable);
 }

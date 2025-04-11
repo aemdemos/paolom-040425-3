@@ -1,30 +1,38 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
+
   const headerRow = ['Hero'];
 
-  // Extracting content
-  const contentWrapper = element.querySelector('.content-wrapper');
-  const contentElement = contentWrapper?.querySelector('.sqs-html-content');
-  const heading = contentElement?.querySelector('h4');
-  const paragraph = contentElement?.querySelector('p');
+  // Extracting data from HTML structure
+  const titleElement = element.querySelector("h4");
+  const subheadingElement = element.querySelector("p");
 
-  // Handling edge cases (empty elements or missing data)
+  // Create title and subheading content
   const contentCell = document.createElement('div');
-  if (heading) {
-    contentCell.appendChild(heading);
-  }
-  if (paragraph) {
-    contentCell.appendChild(paragraph);
+
+  if (titleElement) {
+    const title = document.createElement('h1');
+    title.textContent = titleElement.textContent;
+    contentCell.appendChild(title);
   }
 
-  // Creating the block table cells
-  const cells = [
+  if (subheadingElement) {
+    const subheading = document.createElement('p');
+    subheading.textContent = subheadingElement.textContent;
+    contentCell.appendChild(subheading);
+  }
+
+  // Create table rows
+  const rows = [
     headerRow,
-    [contentCell],
+    [contentCell]
   ];
 
-  const block = WebImporter.DOMUtils.createTable(cells, document);
+  // Create block table
+  const blockTable = WebImporter.DOMUtils.createTable(rows, document);
 
-  // Replace the original element
-  element.replaceWith(block);
+  // Replace the original element with the new block table
+  if (element.replaceWith) {
+    element.replaceWith(blockTable);
+  }
 }

@@ -1,56 +1,37 @@
 /* global WebImporter */
-export default function parse(element, { document }) {
-  // Extract the video block content
-  const videoBlockContent = element.querySelector('.sqs-native-video');
+ export default function parse(element, { document }) {
+    const headerRow = ['Video'];
+    
+    // Extract video configuration
+    const videoWrapper = element.querySelector('.sqs-native-video');
+    const videoConfig = videoWrapper ? JSON.parse(videoWrapper.dataset.configVideo || '{}') : {};
 
-  // Validate video block content exists
-  if (!videoBlockContent) {
-    console.warn('No video block content found');
-    return;
-  }
+    // Get video URL
+    const videoUrl = videoConfig?.structuredContent?.alexandriaUrl?.replace('{variant}', '1920:1080');
 
-  // Extract video data (URL)
-  const videoData = videoBlockContent.getAttribute('data-config-video');
-  let videoUrl = '';
-  if (videoData) {
-    try {
-      const parsedData = JSON.parse(videoData);
-      videoUrl = parsedData.alexandriaUrl.replace('{variant}', '1920:1080');
-    } catch (error) {
-      console.error('Error parsing video data:', error);
+    // Get poster image source
+    const posterSrc = videoConfig?.structuredContent?.alexandriaUrl?.replace('{variant}', 'thumbnail');
+
+    // Check for potential missing data and handle edge cases
+    const posterImage = posterSrc ? document.createElement('img') : document.createTextNode('No poster available');
+    if (posterSrc) {
+        posterImage.setAttribute('src', posterSrc);
+        posterImage.setAttribute('alt', 'Video poster');
     }
-  }
 
-  // Extract poster image URL
-  const posterElement = videoBlockContent.querySelector('.plyr__poster');
-  let posterImageUrl = '';
-  if (posterElement && posterElement.style.backgroundImage) {
-    const match = posterElement.style.backgroundImage.match(/url\((".*?"|'.*?'|.*?)\)/);
-    if (match && match[1]) {
-      posterImageUrl = match[1].replace(/["']/g, '');
+    const videoLink = videoUrl ? document.createElement('a') : document.createTextNode('No video URL available');
+    if (videoUrl) {
+        videoLink.setAttribute('href', videoUrl);
+        videoLink.textContent = videoUrl;
     }
-  }
 
-  // Create elements dynamically
-  const videoLink = document.createElement('a');
-  videoLink.href = videoUrl;
-  videoLink.textContent = videoUrl;
+    // Build the table cells
+    const cells = [
+        headerRow,
+        [posterImage, videoLink],
+    ];
 
-  const posterImage = document.createElement('img');
-  posterImage.src = posterImageUrl;
-
-  // Header row
-  const headerRow = ['Video'];
-
-  // Build the table rows dynamically
-  const cells = [
-    headerRow,
-    [posterImage, videoLink],
-  ];
-
-  // Create the block table
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-
-  // Replace the original element with the new block
-  element.replaceWith(block);
-}
+    // Create and replace the original block with the table
+    const block = WebImporter.DOMUtils.createTable(cells, document);
+    element.replaceWith(block);
+    }

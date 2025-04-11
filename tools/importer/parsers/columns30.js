@@ -1,47 +1,41 @@
 /* global WebImporter */
-export default function parse(element, { document }) {
+export default function parse(element, {
+  document
+}) {
   const headerRow = ['Columns'];
 
-  // First column
-  const firstColumn = document.createElement('div');
+  const contentCells = [];
 
-  // Extract heading
-  const heading = element.querySelector('.sqs-html-content h3');
-  if (heading) {
-    firstColumn.appendChild(heading.cloneNode(true));
+  // Extract first text block content dynamically
+  const textBlock = element.querySelector('.fe-block-yui_3_17_2_1_1738612302565_5398 .sqs-block-content');
+  const textContentArray = [];
+  if (textBlock) {
+    const heading = textBlock.querySelector('h3');
+    if (heading) {
+      textContentArray.push(heading.cloneNode(true)); // Clone heading element
+    }
   }
 
-  // Extract link
-  const link = element.querySelector('.sqs-html-content a');
-  if (link) {
-    firstColumn.appendChild(link.cloneNode(true));
+  // Extract image dynamically
+  const imageBlock = element.querySelector('.fe-block-yui_3_17_2_1_1738612302565_7724 img');
+  const imgElement = imageBlock ? imageBlock.cloneNode(true) : null; // Clone image element
+
+  contentCells.push([textContentArray, imgElement]);
+
+  // Extract final text block content dynamically
+  const finalTextBlock = element.querySelector('.fe-block-yui_3_17_2_1_1738612302565_10926 .sqs-block-content');
+  const finalContentArray = [];
+  if (finalTextBlock) {
+    const children = finalTextBlock.children;
+    for (const child of children) {
+      finalContentArray.push(child.cloneNode(true)); // Clone all children elements
+    }
   }
 
-  // Extract list items
-  const listItemsContainer = element.querySelector('.sqs-html-content ul');
-  if (listItemsContainer) {
-    const listCopy = listItemsContainer.cloneNode(true);
-    firstColumn.appendChild(listCopy);
-  } else {
-    const fallbackList = document.createElement('ul');
-    ['One', 'Two', 'Three'].forEach((itemText) => {
-      const listItem = document.createElement('li');
-      listItem.textContent = itemText;
-      fallbackList.appendChild(listItem);
-    });
-    firstColumn.appendChild(fallbackList);
-  }
+  contentCells.push([finalContentArray]);
 
-  // Second column
-  const secondColumn = document.createElement('div');
-  const image = element.querySelector('.sqs-block-image img');
-  if (image) {
-    secondColumn.appendChild(image.cloneNode(true));
-  }
+  const tableCells = [headerRow, ...contentCells];
+  const blockTable = WebImporter.DOMUtils.createTable(tableCells, document);
 
-  const tableData = [headerRow, [firstColumn, secondColumn]];
-  const tableBlock = WebImporter.DOMUtils.createTable(tableData, document);
-
-  // Replace the original element
-  element.replaceWith(tableBlock);
+  element.replaceWith(blockTable);
 }

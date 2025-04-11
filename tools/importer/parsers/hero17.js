@@ -1,34 +1,37 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  const cells = [];
-
-  // Add the header row
+  // Define the header row for the block
   const headerRow = ['Hero'];
-  cells.push(headerRow);
 
-  // Extract the title
-  const title = element.querySelector('h2');
-  const titleElement = title ? document.createElement('h1') : undefined;
+  // Extract the title element dynamically
+  const titleElement = element.querySelector('h2, h3');
+  let title;
   if (titleElement) {
-    titleElement.textContent = title.textContent.trim();
+    title = document.createElement('h1');
+    title.textContent = titleElement.textContent.trim();
   }
 
-  // Extract the image
-  const image = element.querySelector('img');
-  const imageElement = image ? document.createElement('img') : undefined;
+  // Extract the image element dynamically
+  const imageElement = element.querySelector('[data-image]');
+  let image;
   if (imageElement) {
-    imageElement.src = image.src;
+    image = document.createElement('img');
+    image.src = imageElement.getAttribute('data-src') || imageElement.getAttribute('data-image');
+    image.alt = imageElement.getAttribute('alt') || 'Default alt text'; // Use dynamically extracted alt or provide default
   }
 
-  // Combine content into the second row
-  const secondRow = [
-    [titleElement, imageElement].filter(Boolean)
+  // Build the table cells
+  const cells = [
+    headerRow,
+    [
+      title || document.createTextNode('Heading in Block'), // Use fallback text if title is missing
+      image || document.createTextNode('') // Handle missing image gracefully
+    ]
   ];
-  cells.push(secondRow);
 
-  // Create the block table
+  // Create the table block
   const block = WebImporter.DOMUtils.createTable(cells, document);
 
-  // Replace the original element with the new block
+  // Replace the original element
   element.replaceWith(block);
 }

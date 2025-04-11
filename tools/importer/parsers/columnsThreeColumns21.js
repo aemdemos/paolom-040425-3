@@ -1,35 +1,43 @@
 /* global WebImporter */
+
 export default function parse(element, { document }) {
-  // Define the table header row
-  const headerRow = ['Columns'];
+  const sectionElements = element.querySelectorAll('.fe-block');
 
-  // Dynamically extract content from the element
-  const contentBlocks = element.querySelectorAll('.fe-block');
+  const headerRow = ['Columns']; // Correct structure for the header row
 
-  // Initialize structure for columns
-  const columnContent = [];
+  const columns = Array.from(sectionElements).map((block) => {
+    const htmlContent = block.querySelector('.sqs-block-content');
+    const headingText = htmlContent?.querySelector('h2, h3')?.textContent.trim() || '';
+    const paragraphs = Array.from(htmlContent?.querySelectorAll('p') || []).map((p) => p.textContent.trim());
+    
+    const imageElement = htmlContent?.querySelector('img');
+    const imageToAdd = imageElement ? document.createElement('img') : null;
+    if (imageToAdd) {
+      imageToAdd.src = imageElement.src;
+      imageToAdd.alt = imageElement.alt || '';
+      imageToAdd.style = imageElement.style.cssText;
+    }
 
-  contentBlocks.forEach((block) => {
-    const titleElement = block.querySelector('h2, h3');
-    const paragraphElement = block.querySelector('p');
-    const imageElement = block.querySelector('img');
+    const content = [];
+    if (imageToAdd) {
+      content.push(imageToAdd);
+    }
+    if (headingText) {
+      const headingElement = document.createElement('h2');
+      headingElement.innerHTML = `<strong>${headingText}</strong>`; // Ensure heading is wrapped in <strong>
+      content.push(headingElement);
+    }
+    paragraphs.forEach((paragraph) => {
+      const paragraphElement = document.createElement('p');
+      paragraphElement.textContent = paragraph;
+      content.push(paragraphElement);
+    });
 
-    // Handle missing data gracefully
-    const title = titleElement ? titleElement.cloneNode(true) : document.createTextNode('');
-    const paragraph = paragraphElement ? paragraphElement.cloneNode(true) : document.createTextNode('');
-    const image = imageElement ? imageElement.cloneNode(true) : document.createTextNode('');
-
-    // Add extracted elements to the column content
-    columnContent.push([title, paragraph, image]);
+    return content;
   });
 
-  // Create the table structure
-  const tableStructure = [
-    headerRow,
-    ...columnContent
-  ];
+  const cells = [headerRow, columns];
+  const blockTable = WebImporter.DOMUtils.createTable(cells, document);
 
-  // Generate and replace the original element with the block table
-  const blockTable = WebImporter.DOMUtils.createTable(tableStructure, document);
-  element.replaceWith(blockTable);
+  element.replaceWith(blockTable); // Correct replacement behavior
 }

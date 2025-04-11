@@ -1,34 +1,36 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Extract relevant content
-  const cards = [...element.querySelectorAll('.sqs-block-html .sqs-html-content p')];
+  const headerRow = [document.createElement('strong')];
+  headerRow[0].textContent = 'Cards (no images)';
 
-  if (!cards.length) {
-    console.warn('No card elements found');
-    return;
-  }
+  const rows = [headerRow];
 
-  // Prepare table rows
-  const headerRow = ['Cards (no images)'];
-  const rows = cards.map(card => {
-    const heading = document.createElement('strong');
+  // Parse the HTML content and extract cards information.
+  const cardBlocks = element.querySelectorAll('.sqs-block-content');
 
-    const cardText = card.textContent.trim();
-    if (!cardText) {
-      console.warn('Empty card content detected');
-      return [''];
+  cardBlocks.forEach((block, index) => {
+    const textElements = block.querySelectorAll('p');
+    const cardContent = document.createElement('div');
+
+    textElements.forEach((textElem) => {
+      const clonedElem = textElem.cloneNode(true); // Clone the <p> element
+      cardContent.appendChild(clonedElem);
+    });
+
+    if (cardContent.children.length > 0) {
+      rows.push([cardContent]);
+
+      // Insert a horizontal rule (<hr>) between sections except for the first card.
+      if (index > 0) {
+        const hr = document.createElement('hr');
+        rows.push([hr]);
+      }
     }
+  });
 
-    // Include all content in one cell as per requirements
-    heading.textContent = cardText;
-    return [heading];
-  }).filter(row => row.length > 0);
+  // Create the block table.
+  const blockTable = WebImporter.DOMUtils.createTable(rows, document);
 
-  const cells = [headerRow, ...rows];
-
-  // Create table block
-  const blockTable = WebImporter.DOMUtils.createTable(cells, document);
-
-  // Replace original element with the new block table
+  // Replace the original element with the block table.
   element.replaceWith(blockTable);
 }

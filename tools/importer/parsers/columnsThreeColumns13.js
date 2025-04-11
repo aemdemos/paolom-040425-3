@@ -1,40 +1,31 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  const headerRow = ['Columns'];
+  // Extract column data
+  const columns = Array.from(element.querySelectorAll('.fluid-engine .sqs-block-content'));
+  const columnData = columns.map((col) => {
+    const header = col.querySelector('h4')?.textContent.trim() || '';
+    const subHeader = col.querySelector('h2')?.textContent.trim() || '';
+    const content = col.querySelector('p')?.textContent.trim() || '';
 
-  // Extract content from the element
-  const blocks = element.querySelectorAll('.fe-block');
+    // Structure the content
+    const headerElement = document.createElement('h4');
+    headerElement.textContent = header;
+    const subHeaderElement = document.createElement('h2');
+    subHeaderElement.textContent = subHeader;
+    const contentElement = document.createElement('p');
+    contentElement.textContent = content;
 
-  const columnData = Array.from(blocks).map((block) => {
-    const title = block.querySelector('h2')?.textContent.trim() || '';
-    const subtitle = block.querySelector('h4')?.textContent.trim() || '';
-    const description = block.querySelector('p')?.textContent.trim() || '';
-
-    // Create elements for structured data
-    const columnElements = [];
-
-    if (title) {
-      const columnTitle = document.createElement('h2');
-      columnTitle.textContent = title;
-      columnElements.push(columnTitle);
-    }
-
-    if (subtitle) {
-      const columnSubtitle = document.createElement('h4');
-      columnSubtitle.textContent = subtitle;
-      columnElements.push(columnSubtitle);
-    }
-
-    if (description) {
-      const columnDescription = document.createElement('p');
-      columnDescription.textContent = description;
-      columnElements.push(columnDescription);
-    }
-
-    return columnElements;
+    return [subHeaderElement, headerElement, contentElement];
   });
 
-  const blockTable = WebImporter.DOMUtils.createTable([headerRow, columnData], document);
+  // Create table with the extracted data
+  const headerRow = ['Columns'];
+  const tableData = [
+    headerRow,
+    columnData,
+  ];
+  const block = WebImporter.DOMUtils.createTable(tableData, document);
 
-  element.replaceWith(blockTable);
+  // Replace the original element with the new table
+  element.replaceWith(block);
 }

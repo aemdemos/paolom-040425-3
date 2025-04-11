@@ -2,49 +2,35 @@
 export default function parse(element, { document }) {
   const headerRow = ['Hero'];
 
-  // Extract and validate content from HTML
-  const headingElement = element.querySelector('h3');
-  const paragraphElements = element.querySelectorAll('p');
+  // Extract main content
+  const title = element.querySelector('.fe-block-yui_3_17_2_1_1736804124924_6659 h3');
+  const descriptions = Array.from(
+    element.querySelectorAll('.fe-block-yui_3_17_2_1_1736804124924_19685 p')
+  );
 
-  // Validate heading element existence
-  let heading;
-  if (headingElement) {
-    heading = document.createElement('h1');
-    heading.textContent = headingElement.textContent.trim();
-  } else {
-    console.warn('Heading element missing');
-    heading = document.createElement('h1');
-    heading.textContent = ''; // Fallback empty heading
+  // Title element
+  const heading = title ? document.createElement('h3') : null;
+  if (heading) {
+    heading.innerHTML = title.innerHTML.trim();
   }
 
-  // Validate and construct paragraphs
-  const contentContainer = document.createElement('div');
-
-  // Append heading to the container
-  contentContainer.appendChild(heading);
-
-  // Append paragraphs to the container
-  Array.from(paragraphElements).forEach((p) => {
-    const paragraph = document.createElement('p');
-    paragraph.textContent = p.textContent.trim();
-    contentContainer.appendChild(paragraph);
-  });
-
-  if (contentContainer.children.length === 1) {
-    console.warn('No paragraph elements found');
-    const fallbackParagraph = document.createElement('p');
-    contentContainer.appendChild(fallbackParagraph); // Fallback empty paragraph
+  // Combine descriptions into a single subheading
+  const subheading = descriptions.length
+    ? document.createElement('div')
+    : null;
+  if (subheading) {
+    descriptions.forEach(description => {
+      const para = document.createElement('p');
+      para.innerHTML = description.innerHTML.trim();
+      subheading.appendChild(para);
+    });
   }
 
-  // Construct cells for the table
-  const cells = [
-    headerRow,
-    [contentContainer], // Combine heading and paragraphs in a single cell
-  ];
+  // Combine content into the table
+  const cells = [headerRow, [[heading, subheading]]]; // Ensuring one column per row
 
-  // Create the block table
-  const block = WebImporter.DOMUtils.createTable(cells, document);
+  const table = WebImporter.DOMUtils.createTable(cells, document);
 
-  // Replace element with the new block
-  element.replaceWith(block);
+  // Replace the original element with the newly created table
+  element.replaceWith(table);
 }

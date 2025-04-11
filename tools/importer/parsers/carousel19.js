@@ -1,25 +1,34 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  const headerRow = ['Carousel'];
+  // Extract relevant content from the input element
+  const prevLink = element.querySelector('.item-pagination-link--prev');
+  const nextLink = element.querySelector('.item-pagination-link--next');
 
-  const slides = Array.from(element.querySelectorAll('.item-pagination-link')).map((link) => {
-    const titleElement = link.querySelector('.item-pagination-title');
-    const directionElement = link.querySelector('.item-pagination-prev-next');
+  // Helper function to extract link and title content
+  function createSlideRow(linkElement) {
+    if (!linkElement) return null; // Handle case where linkElement is missing
 
-    const directionText = directionElement ? directionElement.textContent : '';
-    const titleText = titleElement ? titleElement.textContent : '';
+    const href = linkElement.getAttribute('href');
+    const titleElement = linkElement.querySelector('.item-pagination-title');
+    const title = titleElement ? document.createElement('h2') : null;
+    if (title) title.textContent = titleElement.textContent;
 
-    const directionDiv = document.createElement('div');
-    directionDiv.textContent = directionText;
-    const titleHeading = document.createElement('h2');
-    titleHeading.textContent = titleText;
+    const link = href ? document.createElement('a') : null;
+    if (link) {
+      link.setAttribute('href', href);
+      link.textContent = href; // Display the href as text for debugging purposes
+    }
 
-    return [directionDiv, titleHeading];
-  });
+    return [link, title ? [title] : ''];
+  }
 
-  const tableData = [headerRow, ...slides];
+  const cells = [
+    ['Carousel'], // Header row
+    createSlideRow(prevLink),
+    createSlideRow(nextLink),
+  ].filter(row => row); // Filter out null rows
 
-  const carouselTable = WebImporter.DOMUtils.createTable(tableData, document);
+  const block = WebImporter.DOMUtils.createTable(cells, document);
 
-  element.replaceWith(carouselTable);
+  element.replaceWith(block); // Replace the original element with the new block
 }

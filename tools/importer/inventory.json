@@ -1,0 +1,1064 @@
+{
+  "fragments": [
+    {
+      "name": "nav",
+      "path": "/nav",
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/about",
+          "urlHash": "19bf8027326da3f8a3172e9a23b581df4c9bfe1b",
+          "uuid": "19bf8027-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-three-86fe9",
+          "urlHash": "27c284646f8e2ddfd84dfa8e72afd5318c4e5dc9",
+          "uuid": "27c28464-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/aa-case-study",
+          "urlHash": "38a97d7e479337ae4ae3b84d111554714c8a8cac",
+          "uuid": "38a97d7e-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-one-dywm3",
+          "urlHash": "42220cadc09acd9615c0842de1aa796b9c4a856f",
+          "uuid": "42220cad-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/services",
+          "urlHash": "619f3ebdb15447d781cd8544f8ebe86ca1445498",
+          "uuid": "619f3ebd-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/platform",
+          "urlHash": "67ef3406cd019414ce32538f1bbf502245f2965b",
+          "uuid": "67ef3406-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/services-1",
+          "urlHash": "796ae6da52f83c96371f088b25ea8ef0d7a637c8",
+          "uuid": "796ae6da-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/frank-energy-case-study",
+          "urlHash": "91ff46342a1ba21b31f1e6816d9461afe1aadfb6",
+          "uuid": "91ff4634-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/immigration-case-study",
+          "urlHash": "97d1b98e5836ce9ab9c9748c81fc6635ac23b6e9",
+          "uuid": "97d1b98e-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/contact",
+          "urlHash": "9cc200d42021896ef6dab17fb5b532d2104e7b35",
+          "uuid": "9cc200d4-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/genesis-case-study",
+          "urlHash": "a334a4891a89650516259f4d4120cc7aff5c547c",
+          "uuid": "a334a489-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1",
+          "urlHash": "b1f5582bd3c6b4d47f214578d32a164256c4515a",
+          "uuid": "b1f5582b-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/what-is-marketing-automation",
+          "urlHash": "b97db20be647e9504fb34596b522805903598103",
+          "uuid": "b97db20b-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-two-p6958",
+          "urlHash": "bb22c8f24fe5583d73565f95866887f1e7170212",
+          "uuid": "bb22c8f2-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/at-case-study",
+          "urlHash": "d5061c1359e598cc14e970d6da62edf913368f62",
+          "uuid": "d5061c13-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/home",
+          "urlHash": "fcb378ee7221d9e45da8ca2af89d56000b360bf4",
+          "uuid": "fcb378ee-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        }
+      ]
+    },
+    {
+      "name": "footer",
+      "path": "/footer",
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/about",
+          "urlHash": "19bf8027326da3f8a3172e9a23b581df4c9bfe1b",
+          "uuid": "19bf8027-06-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-three-86fe9",
+          "urlHash": "27c284646f8e2ddfd84dfa8e72afd5318c4e5dc9",
+          "uuid": "27c28464-03-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/aa-case-study",
+          "urlHash": "38a97d7e479337ae4ae3b84d111554714c8a8cac",
+          "uuid": "38a97d7e-05-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-one-dywm3",
+          "urlHash": "42220cadc09acd9615c0842de1aa796b9c4a856f",
+          "uuid": "42220cad-05-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/services",
+          "urlHash": "619f3ebdb15447d781cd8544f8ebe86ca1445498",
+          "uuid": "619f3ebd-08-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/platform",
+          "urlHash": "67ef3406cd019414ce32538f1bbf502245f2965b",
+          "uuid": "67ef3406-08-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/services-1",
+          "urlHash": "796ae6da52f83c96371f088b25ea8ef0d7a637c8",
+          "uuid": "796ae6da-08-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/frank-energy-case-study",
+          "urlHash": "91ff46342a1ba21b31f1e6816d9461afe1aadfb6",
+          "uuid": "91ff4634-05-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/immigration-case-study",
+          "urlHash": "97d1b98e5836ce9ab9c9748c81fc6635ac23b6e9",
+          "uuid": "97d1b98e-06-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/contact",
+          "urlHash": "9cc200d42021896ef6dab17fb5b532d2104e7b35",
+          "uuid": "9cc200d4-02-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/genesis-case-study",
+          "urlHash": "a334a4891a89650516259f4d4120cc7aff5c547c",
+          "uuid": "a334a489-05-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1",
+          "urlHash": "b1f5582bd3c6b4d47f214578d32a164256c4515a",
+          "uuid": "b1f5582b-03-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/what-is-marketing-automation",
+          "urlHash": "b97db20be647e9504fb34596b522805903598103",
+          "uuid": "b97db20b-12-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-two-p6958",
+          "urlHash": "bb22c8f24fe5583d73565f95866887f1e7170212",
+          "uuid": "bb22c8f2-03-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/at-case-study",
+          "urlHash": "d5061c1359e598cc14e970d6da62edf913368f62",
+          "uuid": "d5061c13-06-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/home",
+          "urlHash": "fcb378ee7221d9e45da8ca2af89d56000b360bf4",
+          "uuid": "fcb378ee-05-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Columns (three columns)",
+      "cluster": 1,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/services",
+          "urlHash": "619f3ebdb15447d781cd8544f8ebe86ca1445498",
+          "uuid": "619f3ebd-05-2dc03ef9f3bec6140a5e7ce1321428258e344f2d",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[5]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/services-1",
+          "urlHash": "796ae6da52f83c96371f088b25ea8ef0d7a637c8",
+          "uuid": "796ae6da-05-2dc03ef9f3bec6140a5e7ce1321428258e344f2d",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[5]"
+        }
+      ]
+    },
+    {
+      "name": "unknown",
+      "cluster": 2,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/services",
+          "urlHash": "619f3ebdb15447d781cd8544f8ebe86ca1445498",
+          "uuid": "619f3ebd-07-2cc8ce5e7c16c202b3eae001c3e71e81c7a44de0",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[7]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/platform",
+          "urlHash": "67ef3406cd019414ce32538f1bbf502245f2965b",
+          "uuid": "67ef3406-07-2cc8ce5e7c16c202b3eae001c3e71e81c7a44de0",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[7]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/services-1",
+          "urlHash": "796ae6da52f83c96371f088b25ea8ef0d7a637c8",
+          "uuid": "796ae6da-07-2cc8ce5e7c16c202b3eae001c3e71e81c7a44de0",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[7]"
+        }
+      ]
+    },
+    {
+      "name": "Hero",
+      "cluster": 3,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/aa-case-study",
+          "urlHash": "38a97d7e479337ae4ae3b84d111554714c8a8cac",
+          "uuid": "38a97d7e-01-b47a7d25b9564e6b860f724c7eb7d9cb2a525bd3",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/frank-energy-case-study",
+          "urlHash": "91ff46342a1ba21b31f1e6816d9461afe1aadfb6",
+          "uuid": "91ff4634-01-b47a7d25b9564e6b860f724c7eb7d9cb2a525bd3",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/immigration-case-study",
+          "urlHash": "97d1b98e5836ce9ab9c9748c81fc6635ac23b6e9",
+          "uuid": "97d1b98e-01-b47a7d25b9564e6b860f724c7eb7d9cb2a525bd3",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/genesis-case-study",
+          "urlHash": "a334a4891a89650516259f4d4120cc7aff5c547c",
+          "uuid": "a334a489-01-b47a7d25b9564e6b860f724c7eb7d9cb2a525bd3",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/at-case-study",
+          "urlHash": "d5061c1359e598cc14e970d6da62edf913368f62",
+          "uuid": "d5061c13-01-b47a7d25b9564e6b860f724c7eb7d9cb2a525bd3",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[1]"
+        }
+      ]
+    },
+    {
+      "name": "Hero",
+      "cluster": 4,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/services",
+          "urlHash": "619f3ebdb15447d781cd8544f8ebe86ca1445498",
+          "uuid": "619f3ebd-01-b47a7d25b9564e6b860f724c7eb7d9cb2a525bd3",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/platform",
+          "urlHash": "67ef3406cd019414ce32538f1bbf502245f2965b",
+          "uuid": "67ef3406-01-b47a7d25b9564e6b860f724c7eb7d9cb2a525bd3",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/services-1",
+          "urlHash": "796ae6da52f83c96371f088b25ea8ef0d7a637c8",
+          "uuid": "796ae6da-01-b47a7d25b9564e6b860f724c7eb7d9cb2a525bd3",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[1]"
+        }
+      ]
+    },
+    {
+      "name": "Columns",
+      "cluster": 5,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/aa-case-study",
+          "urlHash": "38a97d7e479337ae4ae3b84d111554714c8a8cac",
+          "uuid": "38a97d7e-02-4d110beeb8169fa6bd48751e0a842da1f8ce79b4",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[2]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/frank-energy-case-study",
+          "urlHash": "91ff46342a1ba21b31f1e6816d9461afe1aadfb6",
+          "uuid": "91ff4634-02-4d110beeb8169fa6bd48751e0a842da1f8ce79b4",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[2]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/immigration-case-study",
+          "urlHash": "97d1b98e5836ce9ab9c9748c81fc6635ac23b6e9",
+          "uuid": "97d1b98e-02-4d110beeb8169fa6bd48751e0a842da1f8ce79b4",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[2]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/genesis-case-study",
+          "urlHash": "a334a4891a89650516259f4d4120cc7aff5c547c",
+          "uuid": "a334a489-02-4d110beeb8169fa6bd48751e0a842da1f8ce79b4",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[2]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/at-case-study",
+          "urlHash": "d5061c1359e598cc14e970d6da62edf913368f62",
+          "uuid": "d5061c13-02-4d110beeb8169fa6bd48751e0a842da1f8ce79b4",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[2]"
+        }
+      ]
+    },
+    {
+      "name": "Cards (no images)",
+      "cluster": 6,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/frank-energy-case-study",
+          "urlHash": "91ff46342a1ba21b31f1e6816d9461afe1aadfb6",
+          "uuid": "91ff4634-04-8f2b78bb2396bac89972b212fa5a2e7089215d89",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[4]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/immigration-case-study",
+          "urlHash": "97d1b98e5836ce9ab9c9748c81fc6635ac23b6e9",
+          "uuid": "97d1b98e-04-8f2b78bb2396bac89972b212fa5a2e7089215d89",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[4]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/genesis-case-study",
+          "urlHash": "a334a4891a89650516259f4d4120cc7aff5c547c",
+          "uuid": "a334a489-04-8f2b78bb2396bac89972b212fa5a2e7089215d89",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[4]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/at-case-study",
+          "urlHash": "d5061c1359e598cc14e970d6da62edf913368f62",
+          "uuid": "d5061c13-04-8f2b78bb2396bac89972b212fa5a2e7089215d89",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[4]"
+        }
+      ]
+    },
+    {
+      "name": "Hero",
+      "cluster": 7,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/immigration-case-study",
+          "urlHash": "97d1b98e5836ce9ab9c9748c81fc6635ac23b6e9",
+          "uuid": "97d1b98e-05-2dc03ef9f3bec6140a5e7ce1321428258e344f2d",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[5]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/at-case-study",
+          "urlHash": "d5061c1359e598cc14e970d6da62edf913368f62",
+          "uuid": "d5061c13-05-2dc03ef9f3bec6140a5e7ce1321428258e344f2d",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[5]"
+        }
+      ]
+    },
+    {
+      "name": "Accordion",
+      "cluster": 8,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/what-is-marketing-automation",
+          "urlHash": "b97db20be647e9504fb34596b522805903598103",
+          "uuid": "b97db20b-09-a5720d81f447aabe0db3ec0c6b700350eebd14e9",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[9]"
+        }
+      ]
+    },
+    {
+      "name": "Table (no header)",
+      "cluster": 9,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/about",
+          "urlHash": "19bf8027326da3f8a3172e9a23b581df4c9bfe1b",
+          "uuid": "19bf8027-06-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-three-86fe9",
+          "urlHash": "27c284646f8e2ddfd84dfa8e72afd5318c4e5dc9",
+          "uuid": "27c28464-03-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/aa-case-study",
+          "urlHash": "38a97d7e479337ae4ae3b84d111554714c8a8cac",
+          "uuid": "38a97d7e-05-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-one-dywm3",
+          "urlHash": "42220cadc09acd9615c0842de1aa796b9c4a856f",
+          "uuid": "42220cad-05-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/services",
+          "urlHash": "619f3ebdb15447d781cd8544f8ebe86ca1445498",
+          "uuid": "619f3ebd-08-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/platform",
+          "urlHash": "67ef3406cd019414ce32538f1bbf502245f2965b",
+          "uuid": "67ef3406-08-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/services-1",
+          "urlHash": "796ae6da52f83c96371f088b25ea8ef0d7a637c8",
+          "uuid": "796ae6da-08-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/frank-energy-case-study",
+          "urlHash": "91ff46342a1ba21b31f1e6816d9461afe1aadfb6",
+          "uuid": "91ff4634-05-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/immigration-case-study",
+          "urlHash": "97d1b98e5836ce9ab9c9748c81fc6635ac23b6e9",
+          "uuid": "97d1b98e-06-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/contact",
+          "urlHash": "9cc200d42021896ef6dab17fb5b532d2104e7b35",
+          "uuid": "9cc200d4-02-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/genesis-case-study",
+          "urlHash": "a334a4891a89650516259f4d4120cc7aff5c547c",
+          "uuid": "a334a489-05-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1",
+          "urlHash": "b1f5582bd3c6b4d47f214578d32a164256c4515a",
+          "uuid": "b1f5582b-03-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/what-is-marketing-automation",
+          "urlHash": "b97db20be647e9504fb34596b522805903598103",
+          "uuid": "b97db20b-12-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-two-p6958",
+          "urlHash": "bb22c8f24fe5583d73565f95866887f1e7170212",
+          "uuid": "bb22c8f2-03-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/at-case-study",
+          "urlHash": "d5061c1359e598cc14e970d6da62edf913368f62",
+          "uuid": "d5061c13-06-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/home",
+          "urlHash": "fcb378ee7221d9e45da8ca2af89d56000b360bf4",
+          "uuid": "fcb378ee-05-df2d8614774e18e1b8dccbc899c3c4aee180c525",
+          "xpath": "/html[1]/body[1]/div[1]/footer[1]"
+        }
+      ]
+    },
+    {
+      "name": "Hero",
+      "cluster": 10,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/about",
+          "urlHash": "19bf8027326da3f8a3172e9a23b581df4c9bfe1b",
+          "uuid": "19bf8027-01-b47a7d25b9564e6b860f724c7eb7d9cb2a525bd3",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/what-is-marketing-automation",
+          "urlHash": "b97db20be647e9504fb34596b522805903598103",
+          "uuid": "b97db20b-01-b47a7d25b9564e6b860f724c7eb7d9cb2a525bd3",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[1]"
+        }
+      ]
+    },
+    {
+      "name": "Cards (no images)",
+      "cluster": 11,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/what-is-marketing-automation",
+          "urlHash": "b97db20be647e9504fb34596b522805903598103",
+          "uuid": "b97db20b-05-2dc03ef9f3bec6140a5e7ce1321428258e344f2d",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[5]"
+        }
+      ]
+    },
+    {
+      "name": "Cards (no images)",
+      "cluster": 12,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/what-is-marketing-automation",
+          "urlHash": "b97db20be647e9504fb34596b522805903598103",
+          "uuid": "b97db20b-10-b52ad8050d6a617a58322b4a9971874266f8e844",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[10]"
+        }
+      ]
+    },
+    {
+      "name": "Columns (three columns)",
+      "cluster": 13,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/services",
+          "urlHash": "619f3ebdb15447d781cd8544f8ebe86ca1445498",
+          "uuid": "619f3ebd-02-4d110beeb8169fa6bd48751e0a842da1f8ce79b4",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[2]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/services-1",
+          "urlHash": "796ae6da52f83c96371f088b25ea8ef0d7a637c8",
+          "uuid": "796ae6da-02-4d110beeb8169fa6bd48751e0a842da1f8ce79b4",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[2]"
+        }
+      ]
+    },
+    {
+      "name": "Hero",
+      "cluster": 14,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-three-86fe9",
+          "urlHash": "27c284646f8e2ddfd84dfa8e72afd5318c4e5dc9",
+          "uuid": "27c28464-01-9f9b6c5e56a7172d4b9bf8129c3e535c1606eac6",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-two-p6958",
+          "urlHash": "bb22c8f24fe5583d73565f95866887f1e7170212",
+          "uuid": "bb22c8f2-01-9f9b6c5e56a7172d4b9bf8129c3e535c1606eac6",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]"
+        }
+      ]
+    },
+    {
+      "name": "unknown",
+      "cluster": 15,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/what-is-marketing-automation",
+          "urlHash": "b97db20be647e9504fb34596b522805903598103",
+          "uuid": "b97db20b-07-2cc8ce5e7c16c202b3eae001c3e71e81c7a44de0",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[7]"
+        }
+      ]
+    },
+    {
+      "name": "Columns (three columns)",
+      "cluster": 16,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/platform",
+          "urlHash": "67ef3406cd019414ce32538f1bbf502245f2965b",
+          "uuid": "67ef3406-04-8f2b78bb2396bac89972b212fa5a2e7089215d89",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[4]"
+        }
+      ]
+    },
+    {
+      "name": "Hero",
+      "cluster": 17,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/platform",
+          "urlHash": "67ef3406cd019414ce32538f1bbf502245f2965b",
+          "uuid": "67ef3406-06-9c271c4ce6b1bc80e0440cf7a2dfe30ae782f0b0",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[6]"
+        }
+      ]
+    },
+    {
+      "name": "Table (no header)",
+      "cluster": 18,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/services",
+          "urlHash": "619f3ebdb15447d781cd8544f8ebe86ca1445498",
+          "uuid": "619f3ebd-04-8f2b78bb2396bac89972b212fa5a2e7089215d89",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[4]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/services-1",
+          "urlHash": "796ae6da52f83c96371f088b25ea8ef0d7a637c8",
+          "uuid": "796ae6da-04-8f2b78bb2396bac89972b212fa5a2e7089215d89",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[4]"
+        }
+      ]
+    },
+    {
+      "name": "Carousel",
+      "cluster": 19,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-three-86fe9",
+          "urlHash": "27c284646f8e2ddfd84dfa8e72afd5318c4e5dc9",
+          "uuid": "27c28464-02-31d3c8896b1fd3531c6b4d088f068667d668f20a",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/section[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-two-p6958",
+          "urlHash": "bb22c8f24fe5583d73565f95866887f1e7170212",
+          "uuid": "bb22c8f2-02-31d3c8896b1fd3531c6b4d088f068667d668f20a",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/section[1]"
+        }
+      ]
+    },
+    {
+      "name": "unknown",
+      "cluster": 20,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/about",
+          "urlHash": "19bf8027326da3f8a3172e9a23b581df4c9bfe1b",
+          "uuid": "19bf8027-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-three-86fe9",
+          "urlHash": "27c284646f8e2ddfd84dfa8e72afd5318c4e5dc9",
+          "uuid": "27c28464-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/aa-case-study",
+          "urlHash": "38a97d7e479337ae4ae3b84d111554714c8a8cac",
+          "uuid": "38a97d7e-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-one-dywm3",
+          "urlHash": "42220cadc09acd9615c0842de1aa796b9c4a856f",
+          "uuid": "42220cad-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/services",
+          "urlHash": "619f3ebdb15447d781cd8544f8ebe86ca1445498",
+          "uuid": "619f3ebd-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/platform",
+          "urlHash": "67ef3406cd019414ce32538f1bbf502245f2965b",
+          "uuid": "67ef3406-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/services-1",
+          "urlHash": "796ae6da52f83c96371f088b25ea8ef0d7a637c8",
+          "uuid": "796ae6da-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/frank-energy-case-study",
+          "urlHash": "91ff46342a1ba21b31f1e6816d9461afe1aadfb6",
+          "uuid": "91ff4634-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/immigration-case-study",
+          "urlHash": "97d1b98e5836ce9ab9c9748c81fc6635ac23b6e9",
+          "uuid": "97d1b98e-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/contact",
+          "urlHash": "9cc200d42021896ef6dab17fb5b532d2104e7b35",
+          "uuid": "9cc200d4-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/genesis-case-study",
+          "urlHash": "a334a4891a89650516259f4d4120cc7aff5c547c",
+          "uuid": "a334a489-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1",
+          "urlHash": "b1f5582bd3c6b4d47f214578d32a164256c4515a",
+          "uuid": "b1f5582b-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/what-is-marketing-automation",
+          "urlHash": "b97db20be647e9504fb34596b522805903598103",
+          "uuid": "b97db20b-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-two-p6958",
+          "urlHash": "bb22c8f24fe5583d73565f95866887f1e7170212",
+          "uuid": "bb22c8f2-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/at-case-study",
+          "urlHash": "d5061c1359e598cc14e970d6da62edf913368f62",
+          "uuid": "d5061c13-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/home",
+          "urlHash": "fcb378ee7221d9e45da8ca2af89d56000b360bf4",
+          "uuid": "fcb378ee-00-3e64bcd1fcc2d5941e46891a0e6bf014c2422c1f",
+          "xpath": "/html[1]/body[1]/div[1]/header[1]"
+        }
+      ]
+    },
+    {
+      "name": "Columns (three columns)",
+      "cluster": 21,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/services",
+          "urlHash": "619f3ebdb15447d781cd8544f8ebe86ca1445498",
+          "uuid": "619f3ebd-03-3fdfca785d5109514fdc11ce758e97300aae6f17",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[3]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/services-1",
+          "urlHash": "796ae6da52f83c96371f088b25ea8ef0d7a637c8",
+          "uuid": "796ae6da-03-3fdfca785d5109514fdc11ce758e97300aae6f17",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[3]"
+        }
+      ]
+    },
+    {
+      "name": "Cards",
+      "cluster": 22,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1",
+          "urlHash": "b1f5582bd3c6b4d47f214578d32a164256c4515a",
+          "uuid": "b1f5582b-02-4d110beeb8169fa6bd48751e0a842da1f8ce79b4",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[2]"
+        }
+      ]
+    },
+    {
+      "name": "Columns (three columns)",
+      "cluster": 23,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/home",
+          "urlHash": "fcb378ee7221d9e45da8ca2af89d56000b360bf4",
+          "uuid": "fcb378ee-04-3fdfca785d5109514fdc11ce758e97300aae6f17",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[3]"
+        }
+      ]
+    },
+    {
+      "name": "Table (striped & bordered)",
+      "cluster": 24,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-one-dywm3",
+          "urlHash": "42220cadc09acd9615c0842de1aa796b9c4a856f",
+          "uuid": "42220cad-01-678c358df24ddfc16875d52f065a6fc714c587ac",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[1]/div[2]/div[1]/div[1]/article[1]/div[1]/div[1]"
+        }
+      ]
+    },
+    {
+      "name": "Columns (three columns)",
+      "cluster": 25,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/platform",
+          "urlHash": "67ef3406cd019414ce32538f1bbf502245f2965b",
+          "uuid": "67ef3406-03-3fdfca785d5109514fdc11ce758e97300aae6f17",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[3]"
+        }
+      ]
+    },
+    {
+      "name": "unknown",
+      "cluster": 26,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/contact",
+          "urlHash": "9cc200d42021896ef6dab17fb5b532d2104e7b35",
+          "uuid": "9cc200d4-01-1c14ff94910f953f4c4d1498eb5d4f9b522981d6",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]"
+        }
+      ]
+    },
+    {
+      "name": "Cards",
+      "cluster": 27,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/services",
+          "urlHash": "619f3ebdb15447d781cd8544f8ebe86ca1445498",
+          "uuid": "619f3ebd-06-9c271c4ce6b1bc80e0440cf7a2dfe30ae782f0b0",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[6]"
+        },
+        {
+          "url": "https://www.ubiquity.co.nz/services-1",
+          "urlHash": "796ae6da52f83c96371f088b25ea8ef0d7a637c8",
+          "uuid": "796ae6da-06-9c271c4ce6b1bc80e0440cf7a2dfe30ae782f0b0",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[6]"
+        }
+      ]
+    },
+    {
+      "name": "Table (no header)",
+      "cluster": 28,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1",
+          "urlHash": "b1f5582bd3c6b4d47f214578d32a164256c4515a",
+          "uuid": "b1f5582b-01-b47a7d25b9564e6b860f724c7eb7d9cb2a525bd3",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[1]"
+        }
+      ]
+    },
+    {
+      "name": "Cards (no images)",
+      "cluster": 29,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/platform",
+          "urlHash": "67ef3406cd019414ce32538f1bbf502245f2965b",
+          "uuid": "67ef3406-05-2dc03ef9f3bec6140a5e7ce1321428258e344f2d",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[5]"
+        }
+      ]
+    },
+    {
+      "name": "Columns",
+      "cluster": 30,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/about",
+          "urlHash": "19bf8027326da3f8a3172e9a23b581df4c9bfe1b",
+          "uuid": "19bf8027-05-2dc03ef9f3bec6140a5e7ce1321428258e344f2d",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[5]"
+        }
+      ]
+    },
+    {
+      "name": "Hero",
+      "cluster": 31,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/about",
+          "urlHash": "19bf8027326da3f8a3172e9a23b581df4c9bfe1b",
+          "uuid": "19bf8027-02-4d110beeb8169fa6bd48751e0a842da1f8ce79b4",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[2]"
+        }
+      ]
+    },
+    {
+      "name": "Hero",
+      "cluster": 32,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/home",
+          "urlHash": "fcb378ee7221d9e45da8ca2af89d56000b360bf4",
+          "uuid": "fcb378ee-01-b47a7d25b9564e6b860f724c7eb7d9cb2a525bd3",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[1]"
+        }
+      ]
+    },
+    {
+      "name": "Video",
+      "cluster": 33,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/home",
+          "urlHash": "fcb378ee7221d9e45da8ca2af89d56000b360bf4",
+          "uuid": "fcb378ee-03-ec3d48a9c54ad63a34abd1c7de72f4b88f346e5c",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[2]"
+        }
+      ]
+    },
+    {
+      "name": "unknown",
+      "cluster": 34,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-one-dywm3",
+          "urlHash": "42220cadc09acd9615c0842de1aa796b9c4a856f",
+          "uuid": "42220cad-04-31d3c8896b1fd3531c6b4d088f068667d668f20a",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/section[1]"
+        }
+      ]
+    },
+    {
+      "name": "Cards (no images)",
+      "cluster": 35,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/aa-case-study",
+          "urlHash": "38a97d7e479337ae4ae3b84d111554714c8a8cac",
+          "uuid": "38a97d7e-04-8f2b78bb2396bac89972b212fa5a2e7089215d89",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[4]"
+        }
+      ]
+    },
+    {
+      "name": "Embed (video)",
+      "cluster": 36,
+      "instances": [
+        {
+          "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-one-dywm3",
+          "urlHash": "42220cadc09acd9615c0842de1aa796b9c4a856f",
+          "uuid": "42220cad-03-7ed7366405595388597f4ae70361ea39e0aed684",
+          "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[1]/div[2]/div[1]/div[1]/article[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]"
+        }
+      ]
+    }
+  ],
+  "outliers": [
+    {
+      "url": "https://www.ubiquity.co.nz/about",
+      "urlHash": "19bf8027326da3f8a3172e9a23b581df4c9bfe1b",
+      "uuid": "19bf8027-03-3fdfca785d5109514fdc11ce758e97300aae6f17",
+      "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[3]"
+    },
+    {
+      "url": "https://www.ubiquity.co.nz/about",
+      "urlHash": "19bf8027326da3f8a3172e9a23b581df4c9bfe1b",
+      "uuid": "19bf8027-04-8f2b78bb2396bac89972b212fa5a2e7089215d89",
+      "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[4]"
+    },
+    {
+      "url": "https://www.ubiquity.co.nz/aa-case-study",
+      "urlHash": "38a97d7e479337ae4ae3b84d111554714c8a8cac",
+      "uuid": "38a97d7e-03-3fdfca785d5109514fdc11ce758e97300aae6f17",
+      "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[3]"
+    },
+    {
+      "url": "https://www.ubiquity.co.nz/blog-1/blog-post-title-one-dywm3",
+      "urlHash": "42220cadc09acd9615c0842de1aa796b9c4a856f",
+      "uuid": "42220cad-02-560c9e6fa93559293cebac3401034e26dfea9803",
+      "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[1]/div[2]/div[1]/div[1]/article[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]"
+    },
+    {
+      "url": "https://www.ubiquity.co.nz/platform",
+      "urlHash": "67ef3406cd019414ce32538f1bbf502245f2965b",
+      "uuid": "67ef3406-02-4d110beeb8169fa6bd48751e0a842da1f8ce79b4",
+      "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[2]"
+    },
+    {
+      "url": "https://www.ubiquity.co.nz/frank-energy-case-study",
+      "urlHash": "91ff46342a1ba21b31f1e6816d9461afe1aadfb6",
+      "uuid": "91ff4634-03-3fdfca785d5109514fdc11ce758e97300aae6f17",
+      "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[3]"
+    },
+    {
+      "url": "https://www.ubiquity.co.nz/immigration-case-study",
+      "urlHash": "97d1b98e5836ce9ab9c9748c81fc6635ac23b6e9",
+      "uuid": "97d1b98e-03-3fdfca785d5109514fdc11ce758e97300aae6f17",
+      "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[3]"
+    },
+    {
+      "url": "https://www.ubiquity.co.nz/genesis-case-study",
+      "urlHash": "a334a4891a89650516259f4d4120cc7aff5c547c",
+      "uuid": "a334a489-03-3fdfca785d5109514fdc11ce758e97300aae6f17",
+      "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[3]"
+    },
+    {
+      "url": "https://www.ubiquity.co.nz/what-is-marketing-automation",
+      "urlHash": "b97db20be647e9504fb34596b522805903598103",
+      "uuid": "b97db20b-02-4d110beeb8169fa6bd48751e0a842da1f8ce79b4",
+      "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[2]"
+    },
+    {
+      "url": "https://www.ubiquity.co.nz/what-is-marketing-automation",
+      "urlHash": "b97db20be647e9504fb34596b522805903598103",
+      "uuid": "b97db20b-03-3fdfca785d5109514fdc11ce758e97300aae6f17",
+      "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[3]"
+    },
+    {
+      "url": "https://www.ubiquity.co.nz/what-is-marketing-automation",
+      "urlHash": "b97db20be647e9504fb34596b522805903598103",
+      "uuid": "b97db20b-04-8f2b78bb2396bac89972b212fa5a2e7089215d89",
+      "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[4]"
+    },
+    {
+      "url": "https://www.ubiquity.co.nz/what-is-marketing-automation",
+      "urlHash": "b97db20be647e9504fb34596b522805903598103",
+      "uuid": "b97db20b-06-9c271c4ce6b1bc80e0440cf7a2dfe30ae782f0b0",
+      "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[6]"
+    },
+    {
+      "url": "https://www.ubiquity.co.nz/what-is-marketing-automation",
+      "urlHash": "b97db20be647e9504fb34596b522805903598103",
+      "uuid": "b97db20b-08-d7ffbc1414efda90f8fbd63d08b57673b1edbc22",
+      "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[8]"
+    },
+    {
+      "url": "https://www.ubiquity.co.nz/what-is-marketing-automation",
+      "urlHash": "b97db20be647e9504fb34596b522805903598103",
+      "uuid": "b97db20b-11-1750e8ad798fe589249a3f32cd3251f083481861",
+      "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[11]"
+    },
+    {
+      "url": "https://www.ubiquity.co.nz/at-case-study",
+      "urlHash": "d5061c1359e598cc14e970d6da62edf913368f62",
+      "uuid": "d5061c13-03-3fdfca785d5109514fdc11ce758e97300aae6f17",
+      "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[3]"
+    },
+    {
+      "url": "https://www.ubiquity.co.nz/home",
+      "urlHash": "fcb378ee7221d9e45da8ca2af89d56000b360bf4",
+      "uuid": "fcb378ee-02-d9c839c55905ea4aac96b83e52458dd0a2d49776",
+      "xpath": "/html[1]/body[1]/div[1]/main[1]/article[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]"
+    }
+  ]
+}
